@@ -11,8 +11,15 @@ Note that mutual TLS (mTLS) is also supported.
 By default, TLS is enabled:
 
 - `insecure` (default = false): whether to enable client transport security for
-  the exporter's gRPC connection. See
-  [grpc.WithInsecure()](https://godoc.org/google.golang.org/grpc#WithInsecure).
+  the exporter's HTTPs or gRPC connection. See
+  [grpc.WithInsecure()](https://godoc.org/google.golang.org/grpc#WithInsecure)
+  for gRPC.
+- `curve_preferences` (default = []): specify your curve preferences  that will
+	 be used in an ECDHE handshake, in preference order. Accepted values are:
+  - X25519
+  - P521
+  - P256
+  - P384
 
 As a result, the following parameters are also required:
 
@@ -74,6 +81,8 @@ Additionally certificates may be reloaded by setting the below configuration.
 How TLS/mTLS is configured depends on whether configuring the client or server.
 See below for examples.
 
+- `tpm` (optional): Use the trusted platform module to retrieve the TLS key.
+
 ## Client Configuration
 
 [Exporters](https://github.com/open-telemetry/opentelemetry-collector/blob/main/exporter/README.md)
@@ -122,6 +131,7 @@ Beyond TLS configuration, the following setting can optionally be configured
   client certificate. (optional) This sets the ClientCAs and ClientAuth to
   RequireAndVerifyClientCert in the TLSConfig. Please refer to
   https://godoc.org/crypto/tls#Config for more information.
+- `client_ca_file_reload` (default = false): Reload the ClientCAs file when it is modified.
 
 Example:
 
@@ -147,3 +157,32 @@ receivers:
       grpc:
         endpoint: mysite.local:55690
 ```
+
+## Trusted platform module (TPM) configuration
+
+The [trusted platform module](https://trustedcomputinggroup.org/resource/trusted-platform-module-tpm-summary/) (TPM) configuration can be used for loading TLS key from TPM. Currently only TSS2 format is supported.
+
+- `enabled` (default = false): Enables loading `tls.key_file` from TPM.
+
+- `path` (default = ""): The path to the TPM device or Unix domain socket. For instance `/dev/tpm0` or `/dev/tpmrm0`. This option is not supported on Windows.
+
+- `owner_auth` (default = ""): The owner authorization value. This is used to authenticate the TPM device. If not set, the default owner authorization will be used.
+
+- `auth` (default = ""): The authorization value. This is used to authenticate the TPM device. If not set, the default authorization will be used.
+
+Example:
+
+```yaml
+exporters:
+  otlp:
+    endpoint: myserver.local:55690
+    tls:
+      ca_file: ca.crt
+      cert_file: client.crt
+      key_file: client-tss2.key
+      tpm:
+        enabled: true
+        path: /dev/tpmrm0
+```
+
+The `client-tss2.key` private key with TSS2 format will be loaded from the TPM device `/dev/tpmrm0`.
