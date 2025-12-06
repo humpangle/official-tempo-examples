@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -91,7 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -106,7 +106,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -124,7 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -139,7 +139,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -163,7 +163,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -178,7 +178,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
@@ -198,7 +198,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go 1.22
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: '>=1.22.4'
 
