@@ -28,7 +28,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: '0'
 
@@ -51,7 +51,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test
         run: make test-with-cover-pkg
@@ -66,7 +66,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test
         run: make test-with-cover-tempodb
@@ -81,7 +81,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test
         run: make test-with-cover-tempodb-wal
@@ -96,7 +96,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test
         run: make test-with-cover-others
@@ -111,7 +111,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test
         run: make test-e2e
@@ -129,7 +129,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test
         run: make test-e2e-serverless
@@ -144,7 +144,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build Tempo
         run: make tempo
@@ -168,7 +168,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Bench
         run: make test-bench
@@ -183,7 +183,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install Protoc
         uses: arduino/setup-protoc@v3
@@ -203,7 +203,7 @@ jobs:
           go-version: '>=1.22.4'
 
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Check jsonnet
         run: make jsonnet-check
@@ -219,6 +219,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Build Website
         run: docker run -v ${PWD}/docs/sources:/hugo/content/docs/tempo/latest --rm grafana/docs-base:latest make prod
